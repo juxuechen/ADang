@@ -44,20 +44,9 @@
 	}
 }
 
--(void)showWithPushController:(UIViewController *)controller{
-	controller.view.frame = CGRectMake(160, 416/2, 0, 0);
-	[UIView beginAnimations:@"center" context:nil];
-    [UIView setAnimationDuration:2];
-	controller.view.frame = CGRectMake(0, 0, 320, 416);
-    [UIView commitAnimations];
-
-	[self.navigationController.view.layer addSublayer:controller.view.layer];
-	[self.navigationController pushViewController:controller animated:YES];
-}
-
 -(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller{
 	CATransition *animation = [CATransition animation];
-	animation.duration = 1.0f;
+	animation.duration = 0.5f;
 	//	animation.timingFunction = UIViewAnimationCurveEaseInOut;
 	animation.type = type;
 	animation.subtype = subtype;
@@ -92,10 +81,10 @@
 			[self showTypeAnimation:@"cube" withSubType:kCATransitionFromBottom pushController:viewController];
 			break;
 		case 8:
-			[self showTypeAnimation:kCATransitionPush withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"cube" withSubType:kCATransitionFromBottom pushController:viewController];
 			break;
 		case 9:
-			[self showWithPushController:viewController];
+			[self showTypeAnimation:@"cameraIrisHollowOpen" withSubType:kCATransitionFromTop pushController:viewController];
 			break;
 		default:
 			break;

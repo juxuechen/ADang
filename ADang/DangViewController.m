@@ -83,7 +83,7 @@
 	view5.center = CGPointFromString([centersArray objectAtIndex:4*dotCount/iconCount]);
     [UIView commitAnimations];
 	
-	[self performSelector:@selector(center) withObject:nil afterDelay:0.1f];
+	[self performSelector:@selector(center) withObject:nil afterDelay:0.05f];
 }
 
 
