@@ -51,7 +51,12 @@
 	animation.type = type;
 	animation.subtype = subtype;
 	[self.navigationController.view.layer addAnimation:animation forKey:nil];
-	[self.navigationController pushViewController:controller animated:YES];
+	if ([subtype length]) {
+		[self.navigationController pushViewController:controller animated:YES];
+	}
+	else {
+		[self.navigationController pushViewController:controller animated:NO];
+	}
 }
 
 - (void)action:(id)sender {
@@ -60,31 +65,32 @@
 	DangViewController *viewController = [[DangViewController alloc] init];
 	switch (btn.tag) {
 		case 1:
-			[self showTypeAnimation:kCATransitionMoveIn withSubType:kCATransitionFromTop pushController:viewController];
+			[self showTypeAnimation:kCATransitionMoveIn withSubType:kCATransitionFromLeft pushController:viewController];
 			break;
 		case 2:
-			[self showTypeAnimation:kCATransitionFade withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:kCATransitionFade withSubType:kCATransitionFromRight
+					 pushController:viewController];
 			break;	
 		case 3:
-			[self showTypeAnimation:@"rippleEffect" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"cube" withSubType:nil pushController:viewController];
 			break;
 		case 4:
-			[self showTypeAnimation:@"suckEffect" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"suckEffect" withSubType:nil pushController:viewController];
 			break;
 		case 5:
-			[self showTypeAnimation:@"oglFlip" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"oglFlip" withSubType:nil pushController:viewController];
 			break;
 		case 6:
-			[self showTypeAnimation:@"pageUnCurl" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"rippleEffect" withSubType:nil pushController:viewController];
 			break;
 		case 7:
-			[self showTypeAnimation:@"cube" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"pageCurl" withSubType:nil pushController:viewController];
 			break;
 		case 8:
-			[self showTypeAnimation:@"cube" withSubType:kCATransitionFromBottom pushController:viewController];
+			[self showTypeAnimation:@"cameraIrisHollowOpen " withSubType:nil pushController:viewController];
 			break;
 		case 9:
-			[self showTypeAnimation:@"cameraIrisHollowOpen" withSubType:kCATransitionFromTop pushController:viewController];
+			[self showTypeAnimation:kCATransitionReveal	withSubType:kCATransitionFromTop pushController:viewController];
 			break;
 		default:
 			break;
