@@ -66,7 +66,13 @@
 	view4.center = CGPointFromString([centersArray objectAtIndex:3*dotCount/iconCount]);
 	view5.center = CGPointFromString([centersArray objectAtIndex:4*dotCount/iconCount]);
 	 
-	[self performSelector:@selector(center) withObject:nil afterDelay:0.1f];
+	int j = rand();
+	gap = (j%100)/1000.;
+	if (gap == 0.0f) {
+		gap = 0.05f;
+	}
+	NSLog(@"gar %f",gap);
+	[self performSelector:@selector(center) withObject:nil afterDelay:gap];
 }
 
 - (void)center{
@@ -75,7 +81,7 @@
 	[centersArray addObject:obj];
 	
 	[UIView beginAnimations:@"center" context:nil];
-    [UIView setAnimationDuration:1];
+    [UIView setAnimationDuration:0.5f];
 	view1.center = CGPointFromString([centersArray objectAtIndex:0*dotCount/iconCount]);
 	view2.center = CGPointFromString([centersArray objectAtIndex:1*dotCount/iconCount]);
 	view3.center = CGPointFromString([centersArray objectAtIndex:2*dotCount/iconCount]);
@@ -83,7 +89,7 @@
 	view5.center = CGPointFromString([centersArray objectAtIndex:4*dotCount/iconCount]);
     [UIView commitAnimations];
 	
-	[self performSelector:@selector(center) withObject:nil afterDelay:0.05f];
+	[self performSelector:@selector(center) withObject:nil afterDelay:gap];
 }
 
 

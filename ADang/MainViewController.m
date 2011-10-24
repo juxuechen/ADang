@@ -59,6 +59,27 @@
 	}
 }
 
+- (void)showZoomInController:(UIViewController *)controller {
+	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
+	nav.navigationBar.tintColor = [UIColor purpleColor];
+	nav.navigationController.title = @"诈尸了，我来了～";
+	
+	[self.view.layer addSublayer:nav.view.layer ];
+
+	
+//	controller.view.frame = CGRectMake(160, 230, 0, 0);
+	nav.view.layer.frame = CGRectMake(160, 230, 0, 0);
+	[self.navigationController.view addSubview:nav.view];
+	[UIView beginAnimations:@"center" context:nil];
+    [UIView setAnimationDuration:5.0f];
+	[UIView	setAnimationCurve:UIViewAnimationCurveEaseIn];//先慢后快
+//	controller.view.frame = CGRectMake(0, 0, 50, 50);
+	nav.view.layer.frame = CGRectMake(0, 0, 50, 50);
+    [UIView commitAnimations];
+
+//	[self presentModalViewController:nav animated:YES];
+}
+
 - (void)action:(id)sender {
 	UIButton *btn = sender;
 	NSLog(@"sender %d",btn.tag);
@@ -90,7 +111,8 @@
 			[self showTypeAnimation:@"cameraIrisHollowOpen " withSubType:nil pushController:viewController];
 			break;
 		case 9:
-			[self showTypeAnimation:kCATransitionReveal	withSubType:kCATransitionFromTop pushController:viewController];
+//			[self showTypeAnimation:kCATransitionReveal	withSubType:kCATransitionFromTop pushController:viewController];
+			[self showZoomInController:viewController];
 			break;
 		default:
 			break;

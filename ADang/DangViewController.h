@@ -23,6 +23,7 @@
 	UIImageView *view5;
 	
 	NSMutableArray *centersArray;
+	float gap;
 }
 
 @end
