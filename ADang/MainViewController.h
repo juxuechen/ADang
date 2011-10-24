@@ -9,6 +9,5 @@
 
 @interface MainViewController : UIViewController
 
--(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller;
 
 @end

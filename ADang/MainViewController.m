@@ -44,10 +44,21 @@
 	}
 }
 
+-(void)showWithPushController:(UIViewController *)controller{
+	controller.view.frame = CGRectMake(160, 416/2, 0, 0);
+	[UIView beginAnimations:@"center" context:nil];
+    [UIView setAnimationDuration:2];
+	controller.view.frame = CGRectMake(0, 0, 320, 416);
+    [UIView commitAnimations];
+
+	[self.navigationController.view.layer addSublayer:controller.view.layer];
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
 -(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller{
 	CATransition *animation = [CATransition animation];
 	animation.duration = 1.0f;
-//	animation.timingFunction = UIViewAnimationCurveEaseInOut;
+	//	animation.timingFunction = UIViewAnimationCurveEaseInOut;
 	animation.type = type;
 	animation.subtype = subtype;
 	[self.navigationController.view.layer addAnimation:animation forKey:nil];
@@ -67,6 +78,24 @@
 			break;	
 		case 3:
 			[self showTypeAnimation:@"rippleEffect" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 4:
+			[self showTypeAnimation:@"suckEffect" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 5:
+			[self showTypeAnimation:@"oglFlip" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 6:
+			[self showTypeAnimation:@"pageUnCurl" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 7:
+			[self showTypeAnimation:@"cube" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 8:
+			[self showTypeAnimation:kCATransitionPush withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		case 9:
+			[self showWithPushController:viewController];
 			break;
 		default:
 			break;
