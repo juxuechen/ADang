@@ -7,6 +7,8 @@
 //
 
 #import "MainViewController.h"
+#import <QuartzCore/QuartzCore.h>
+#import "DangViewController.h"
 
 @implementation MainViewController
 
@@ -42,9 +44,33 @@
 	}
 }
 
+-(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller{
+	CATransition *animation = [CATransition animation];
+	animation.duration = 1.0f;
+//	animation.timingFunction = UIViewAnimationCurveEaseInOut;
+	animation.type = type;
+	animation.subtype = subtype;
+	[self.navigationController.view.layer addAnimation:animation forKey:nil];
+	[self.navigationController pushViewController:controller animated:YES];
+}
+
 - (void)action:(id)sender {
 	UIButton *btn = sender;
 	NSLog(@"sender %d",btn.tag);
+	DangViewController *viewController = [[DangViewController alloc] init];
+	switch (btn.tag) {
+		case 1:
+			[self showTypeAnimation:kCATransitionMoveIn withSubType:kCATransitionFromTop pushController:viewController];
+			break;
+		case 2:
+			[self showTypeAnimation:kCATransitionFade withSubType:kCATransitionFromBottom pushController:viewController];
+			break;	
+		case 3:
+			[self showTypeAnimation:@"rippleEffect" withSubType:kCATransitionFromBottom pushController:viewController];
+			break;
+		default:
+			break;
+	}
 }
 
 @end

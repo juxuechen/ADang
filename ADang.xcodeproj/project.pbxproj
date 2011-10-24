@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		86B82AF21455012800D74CD0 /* press.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82AF11455012800D74CD0 /* press.png */; };
+		86B82AF91455062800D74CD0 /* DangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B82AF81455062800D74CD0 /* DangViewController.m */; };
+		86B82AFE1455081200D74CD0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B82AFD1455081200D74CD0 /* QuartzCore.framework */; };
 		86EB4DB314515FB700A8BAF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB214515FB600A8BAF0 /* UIKit.framework */; };
 		86EB4DB514515FB700A8BAF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB414515FB700A8BAF0 /* Foundation.framework */; };
 		86EB4DB714515FB700A8BAF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB614515FB700A8BAF0 /* CoreGraphics.framework */; };
@@ -37,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		86B82AF11455012800D74CD0 /* press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = press.png; sourceTree = "<group>"; };
+		86B82AF71455062800D74CD0 /* DangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DangViewController.h; sourceTree = "<group>"; };
+		86B82AF81455062800D74CD0 /* DangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DangViewController.m; sourceTree = "<group>"; };
+		86B82AFD1455081200D74CD0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		86EB4DAE14515FB600A8BAF0 /* ADang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB4DB214515FB600A8BAF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86EB4DB414515FB700A8BAF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -62,6 +67,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				86B82AFE1455081200D74CD0 /* QuartzCore.framework in Frameworks */,
 				86EB4DB314515FB700A8BAF0 /* UIKit.framework in Frameworks */,
 				86EB4DB514515FB700A8BAF0 /* Foundation.framework in Frameworks */,
 				86EB4DB714515FB700A8BAF0 /* CoreGraphics.framework in Frameworks */,
@@ -103,6 +109,7 @@
 		86EB4DB114515FB600A8BAF0 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				86B82AFD1455081200D74CD0 /* QuartzCore.framework */,
 				86EB4DB214515FB600A8BAF0 /* UIKit.framework */,
 				86EB4DB414515FB700A8BAF0 /* Foundation.framework */,
 				86EB4DB614515FB700A8BAF0 /* CoreGraphics.framework */,
@@ -118,6 +125,8 @@
 				86EB4DC214515FB700A8BAF0 /* ADangAppDelegate.m */,
 				86EB4E011451606300A8BAF0 /* MainViewController.h */,
 				86EB4E021451606300A8BAF0 /* MainViewController.m */,
+				86B82AF71455062800D74CD0 /* DangViewController.h */,
+				86B82AF81455062800D74CD0 /* DangViewController.m */,
 				86EB4DB914515FB700A8BAF0 /* Supporting Files */,
 			);
 			path = ADang;
@@ -259,6 +268,7 @@
 				86EB4DBF14515FB700A8BAF0 /* main.m in Sources */,
 				86EB4DC314515FB700A8BAF0 /* ADangAppDelegate.m in Sources */,
 				86EB4E031451606300A8BAF0 /* MainViewController.m in Sources */,
+				86B82AF91455062800D74CD0 /* DangViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
