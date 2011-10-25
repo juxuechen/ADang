@@ -59,25 +59,57 @@
 	}
 }
 
+- (CAAnimationGroup *)animationGroupFor:(NSArray *)animations 
+							   withView:(UIView *)view 
+                               duration:(NSTimeInterval)duration 
+							   delegate:(id)delegate 
+                          startSelector:(SEL)startSelector 
+						   stopSelector:(SEL)stopSelector
+                                   name:(NSString *)name 
+								   type:(NSString *)type {
+	CAAnimationGroup *group = [CAAnimationGroup animation];
+	group.animations = [NSArray arrayWithArray:animations];
+	group.delegate = self;
+	group.duration = duration;
+	group.removedOnCompletion = NO;
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	[group setValue:view forKey:@"kFTAnimationTargetViewKey"];
+	[group setValue:delegate forKey:@"kFTAnimationCallerDelegateKey"];
+
+	[group setValue:name forKey:@"kFTAnimationName"];
+	[group setValue:type forKey:@"kFTAnimationType"];
+	return group;
+}
+
 - (void)showZoomInController:(UIViewController *)controller {
-	UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:controller];
-	nav.navigationBar.tintColor = [UIColor purpleColor];
-	nav.navigationController.title = @"诈尸了，我来了～";
+	float duration = 1.0f;
+	CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
+	scale.duration = duration;
+	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.5f],
+					[NSNumber numberWithFloat:1.2f],
+					[NSNumber numberWithFloat:.85f],
+					[NSNumber numberWithFloat:1.f],
+					nil];
 	
-	[self.view.layer addSublayer:nav.view.layer ];
-
+	CABasicAnimation *fadeIn = [CABasicAnimation animationWithKeyPath:@"opacity"];
+	fadeIn.duration = duration * .4f;
+	fadeIn.fromValue = [NSNumber numberWithFloat:0.f];
+	fadeIn.toValue = [NSNumber numberWithFloat:1.f];
+	fadeIn.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
+	fadeIn.fillMode = kCAFillModeForwards;
 	
-//	controller.view.frame = CGRectMake(160, 230, 0, 0);
-	nav.view.layer.frame = CGRectMake(160, 230, 0, 0);
-	[self.navigationController.view addSubview:nav.view];
-	[UIView beginAnimations:@"center" context:nil];
-    [UIView setAnimationDuration:5.0f];
-	[UIView	setAnimationCurve:UIViewAnimationCurveEaseIn];//先慢后快
-//	controller.view.frame = CGRectMake(0, 0, 50, 50);
-	nav.view.layer.frame = CGRectMake(0, 0, 50, 50);
-    [UIView commitAnimations];
-
-//	[self presentModalViewController:nav animated:YES];
+	CAAnimationGroup *group = [self animationGroupFor:[NSArray arrayWithObjects:scale, fadeIn, nil]										 withView:controller.view	
+											 duration:duration 
+											 delegate:nil 
+										startSelector:nil 
+										 stopSelector:nil 
+												 name:@"kFTAnimationPopIn" 
+												 type:@"kFTAnimationTypeIn"];
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	
+	
+	[self.navigationController.view.layer addAnimation:group forKey:nil];
+	[self.navigationController pushViewController:controller animated:YES];
 }
 
 - (void)action:(id)sender {
@@ -111,7 +143,6 @@
 			[self showTypeAnimation:@"cameraIrisHollowOpen " withSubType:nil pushController:viewController];
 			break;
 		case 9:
-//			[self showTypeAnimation:kCATransitionReveal	withSubType:kCATransitionFromTop pushController:viewController];
 			[self showZoomInController:viewController];
 			break;
 		default:
