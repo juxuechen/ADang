@@ -22,5 +22,10 @@
 	<string>1.0</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>miniKatong.TTF</string>
+		<string>wawaW5.TTF</string>
+	</array>
 </dict>
 </plist>

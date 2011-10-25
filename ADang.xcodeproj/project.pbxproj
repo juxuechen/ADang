@@ -19,6 +19,8 @@
 		86B82B1A145532C100D74CD0 /* 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82B15145532C100D74CD0 /* 3.png */; };
 		86B82B1B145532C100D74CD0 /* 4.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82B16145532C100D74CD0 /* 4.png */; };
 		86B82B1C145532C100D74CD0 /* 5.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82B17145532C100D74CD0 /* 5.png */; };
+		86DDE5BD14569EA900FF701E /* miniKatong.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 86DDE5BB14569EA900FF701E /* miniKatong.TTF */; };
+		86DDE5BE14569EA900FF701E /* wawaW5.TTF in Resources */ = {isa = PBXBuildFile; fileRef = 86DDE5BC14569EA900FF701E /* wawaW5.TTF */; };
 		86EB4DB314515FB700A8BAF0 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB214515FB600A8BAF0 /* UIKit.framework */; };
 		86EB4DB514515FB700A8BAF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB414515FB700A8BAF0 /* Foundation.framework */; };
 		86EB4DB714515FB700A8BAF0 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86EB4DB614515FB700A8BAF0 /* CoreGraphics.framework */; };
@@ -60,6 +62,8 @@
 		86B82B15145532C100D74CD0 /* 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 3.png; sourceTree = "<group>"; };
 		86B82B16145532C100D74CD0 /* 4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 4.png; sourceTree = "<group>"; };
 		86B82B17145532C100D74CD0 /* 5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 5.png; sourceTree = "<group>"; };
+		86DDE5BB14569EA900FF701E /* miniKatong.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = miniKatong.TTF; sourceTree = SOURCE_ROOT; };
+		86DDE5BC14569EA900FF701E /* wawaW5.TTF */ = {isa = PBXFileReference; lastKnownFileType = file; path = wawaW5.TTF; sourceTree = SOURCE_ROOT; };
 		86EB4DAE14515FB600A8BAF0 /* ADang.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADang.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		86EB4DB214515FB600A8BAF0 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		86EB4DB414515FB700A8BAF0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -153,6 +157,8 @@
 		86EB4DB914515FB700A8BAF0 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				86DDE5BB14569EA900FF701E /* miniKatong.TTF */,
+				86DDE5BC14569EA900FF701E /* wawaW5.TTF */,
 				86EB4DE214515FC900A8BAF0 /* image */,
 				86EB4DBA14515FB700A8BAF0 /* ADang-Info.plist */,
 				86EB4DBB14515FB700A8BAF0 /* InfoPlist.strings */,
@@ -268,6 +274,8 @@
 				86B82B1A145532C100D74CD0 /* 3.png in Resources */,
 				86B82B1B145532C100D74CD0 /* 4.png in Resources */,
 				86B82B1C145532C100D74CD0 /* 5.png in Resources */,
+				86DDE5BD14569EA900FF701E /* miniKatong.TTF in Resources */,
+				86DDE5BE14569EA900FF701E /* wawaW5.TTF in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

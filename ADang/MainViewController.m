@@ -42,6 +42,38 @@
 			[btn addTarget:self action:@selector(action:) forControlEvents:UIControlEventTouchUpInside];
 		}
 	}
+	
+//	NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
+//    NSArray *fontNames;
+//    NSInteger indFamily, indFont;
+//    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
+//    {
+//        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
+//        fontNames = [[NSArray alloc] initWithArray:
+//					 [UIFont fontNamesForFamilyName:
+//					  [familyNames objectAtIndex:indFamily]]];
+//		for (indFont=0; indFont<[fontNames count]; ++indFont)
+//		{
+//			NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
+//		}
+//    }
+	UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 300, 50)];
+	label1.text = @"我是口碑阿铛喔！";
+	label1.font = [UIFont fontWithName:@"Jkaton" size:20.0f];
+	[self.view addSubview:label1];
+
+	UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 336, 300, 50)];
+	label2.text = @"想看我诈尸？点我的九个兄弟们！";
+	label2.textColor = [UIColor orangeColor];
+	label2.font = [UIFont fontWithName:@"Jkaton" size:20.0f];
+	[self.view addSubview:label2];
+	
+	UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(220, 10, 80, 60)];
+	label3.text = @"吃喝玩乐行，口碑我看行！";
+	label3.textColor = [UIColor purpleColor];
+	label3.font = [UIFont fontWithName:@"DFPWaWaW5" size:15.0f];
+	label3.numberOfLines = 0 ;
+	[self.view addSubview:label3];
 }
 
 -(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller{
@@ -83,6 +115,7 @@
 
 - (void)showZoomInController:(UIViewController *)controller {
 	float duration = 1.0f;
+	
 	CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
 	scale.duration = duration;
 	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.5f],
