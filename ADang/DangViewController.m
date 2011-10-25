@@ -46,6 +46,11 @@
 	titleLabel.font = [UIFont fontWithName:@"DFPWaWaW5" size:28.0f];
 	self.navigationItem.titleView = titleLabel;
 	
+	UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+	btn.frame = CGRectMake(0,0,320,416);
+	[self.view addSubview:btn];
+	[btn addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];
+	
 	[self imageViewWithImageName:@"ad.png" Frame:CGRectMake((320-77)/2, 130, 77, 64)];
 	[self imageViewWithImageName:@"b.png" Frame:CGRectMake(160-10-60, 210, 60, 60)];
 	[self imageViewWithImageName:@"g.png" Frame:CGRectMake(160+10, 210, 60, 60)];
@@ -68,8 +73,9 @@
 	view4.center = CGPointFromString([centersArray objectAtIndex:3*dotCount/iconCount]);
 	view5.center = CGPointFromString([centersArray objectAtIndex:4*dotCount/iconCount]);
 	 
-	int j = rand();
-	gap = (j%100)/1000.;
+	
+	direction = CW;
+	gap = (rand()%100)/1000.;
 	if (gap == 0.0f) {
 		gap = 0.05f;
 	}
@@ -78,9 +84,19 @@
 }
 
 - (void)center{
-	id obj = [centersArray objectAtIndex:0];
-	[centersArray removeObjectAtIndex:0];
-	[centersArray addObject:obj];
+	if (CW == direction) {
+		id obj = [centersArray objectAtIndex:0];
+		[centersArray removeObjectAtIndex:0];
+		[centersArray addObject:obj];
+	}
+	else {
+		id obj = [centersArray lastObject];
+		[centersArray removeLastObject];
+		NSMutableArray *array = [NSArray arrayWithArray:centersArray];
+		[centersArray removeAllObjects];
+		[centersArray addObject:obj];
+		[centersArray addObjectsFromArray:array];
+	}
 	
 	[UIView beginAnimations:@"center" context:nil];
     [UIView setAnimationDuration:0.5f];
@@ -94,5 +110,18 @@
 	[self performSelector:@selector(center) withObject:nil afterDelay:gap];
 }
 
+- (void)action{
+	if (CW == direction) {
+		direction = CCW;
+	}
+	else {
+		direction = CW;
+	}
+	gap = (rand()%100)/1000.;
+	if (gap == 0.0f) {
+		gap = 0.05f;
+	}
+	NSLog(@"gar %f",gap);
+}
 
 @end

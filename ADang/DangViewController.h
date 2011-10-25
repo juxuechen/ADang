@@ -11,6 +11,9 @@
 #define center3 CGPointMake(160+130*cos(3*6.26/5), 200+130*sin(3*6.26/5))
 #define center4 CGPointMake(160+130*cos(4*6.26/5), 200+130*sin(4*6.26/5))
 #define center5 CGPointMake(160+130*cos(5*6.26/5), 200+130*sin(5*6.26/5))
+#define CW 1
+#define CCW 2
+
 
 #define dotCount 100 //100个点
 #define iconCount 5//5个阿铛在转动
@@ -24,6 +27,7 @@
 	
 	NSMutableArray *centersArray;
 	float gap;
+	int direction;
 }
 
 @end
