@@ -17,7 +17,7 @@
     self = [super init];
     if (self) {
         // Initialization code here.
-		self.title = @"阿铛诈尸了";
+		self.title = @"返回";
 		self.view.backgroundColor = [UIColor whiteColor];
     }
     
@@ -43,20 +43,14 @@
 		}
 	}
 	
-//	NSArray *familyNames = [[NSArray alloc] initWithArray:[UIFont familyNames]];
-//    NSArray *fontNames;
-//    NSInteger indFamily, indFont;
-//    for (indFamily=0; indFamily<[familyNames count]; ++indFamily)
-//    {
-//        NSLog(@"Family name: %@", [familyNames objectAtIndex:indFamily]);
-//        fontNames = [[NSArray alloc] initWithArray:
-//					 [UIFont fontNamesForFamilyName:
-//					  [familyNames objectAtIndex:indFamily]]];
-//		for (indFont=0; indFont<[fontNames count]; ++indFont)
-//		{
-//			NSLog(@"    Font name: %@", [fontNames objectAtIndex:indFont]);
-//		}
-//    }
+	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+	titleLabel.text = @"阿铛诈尸了";
+	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.backgroundColor = [UIColor clearColor];
+	titleLabel.textColor = [UIColor whiteColor];
+	titleLabel.font = [UIFont fontWithName:@"DFPWaWaW5" size:25.0f];
+	self.navigationItem.titleView = titleLabel;
+	
 	UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(10, 30, 300, 50)];
 	label1.text = @"我是口碑阿铛喔！";
 	label1.font = [UIFont fontWithName:@"Jkaton" size:20.0f];
@@ -68,10 +62,10 @@
 	label2.font = [UIFont fontWithName:@"Jkaton" size:20.0f];
 	[self.view addSubview:label2];
 	
-	UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(220, 10, 80, 60)];
-	label3.text = @"吃喝玩乐行，口碑我看行！";
+	UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(230, 10, 70, 60)];
+	label3.text = @"吃喝玩乐行，口碑我最行！";
 	label3.textColor = [UIColor purpleColor];
-	label3.font = [UIFont fontWithName:@"DFPWaWaW5" size:15.0f];
+	label3.font = [UIFont fontWithName:@"DFPWaWaW5" size:16.0f];
 	label3.numberOfLines = 0 ;
 	[self.view addSubview:label3];
 }

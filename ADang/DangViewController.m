@@ -38,11 +38,13 @@
 - (void) viewDidLoad{
 	[super viewDidLoad];
 	
-	UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"我要重新诈尸！" 
-																	  style:UIBarButtonItemStyleBordered target:self 
-																	 action:nil];
-	barButtonItem.title = @"重新诈尸!";
-	self.navigationItem.backBarButtonItem = barButtonItem;
+	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
+	titleLabel.text = @"我来咯～";
+	titleLabel.textAlignment = UITextAlignmentCenter;
+	titleLabel.backgroundColor = [UIColor clearColor];
+	titleLabel.textColor = [UIColor whiteColor];
+	titleLabel.font = [UIFont fontWithName:@"DFPWaWaW5" size:28.0f];
+	self.navigationItem.titleView = titleLabel;
 	
 	[self imageViewWithImageName:@"ad.png" Frame:CGRectMake((320-77)/2, 130, 77, 64)];
 	[self imageViewWithImageName:@"b.png" Frame:CGRectMake(160-10-60, 210, 60, 60)];
