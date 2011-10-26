@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import <QuartzCore/QuartzCore.h>
 #import "DangViewController.h"
+#import "CAAnimation+ViewController.h"
 
 @implementation MainViewController
 
@@ -44,7 +45,7 @@
 	}
 	
 	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
-	titleLabel.text = @"阿铛诈尸了";
+	titleLabel.text = @"阿铛转圈圈了";
 	titleLabel.textAlignment = UITextAlignmentCenter;
 	titleLabel.backgroundColor = [UIColor clearColor];
 	titleLabel.textColor = [UIColor whiteColor];
@@ -57,7 +58,7 @@
 	[self.view addSubview:label1];
 
 	UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(10, 336, 300, 50)];
-	label2.text = @"想看我诈尸？点我的九个兄弟们！";
+	label2.text = @"想看我转圈？点我的九个兄弟们！";
 	label2.textColor = [UIColor orangeColor];
 	label2.font = [UIFont fontWithName:@"Jkaton" size:20.0f];
 	[self.view addSubview:label2];
@@ -68,21 +69,6 @@
 	label3.font = [UIFont fontWithName:@"DFPWaWaW5" size:16.0f];
 	label3.numberOfLines = 0 ;
 	[self.view addSubview:label3];
-}
-
--(void)showTypeAnimation:(NSString *)type withSubType:(NSString *)subtype pushController:(UIViewController *)controller{
-	CATransition *animation = [CATransition animation];
-	animation.duration = 0.5f;
-	//	animation.timingFunction = UIViewAnimationCurveEaseInOut;
-	animation.type = type;
-	animation.subtype = subtype;
-	[self.navigationController.view.layer addAnimation:animation forKey:nil];
-	if ([subtype length]) {
-		[self.navigationController pushViewController:controller animated:YES];
-	}
-	else {
-		[self.navigationController pushViewController:controller animated:NO];
-	}
 }
 
 - (CAAnimationGroup *)animationGroupFor:(NSArray *)animations 
@@ -112,9 +98,11 @@
 	
 	CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
 	scale.duration = duration;
-	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.5f],
-					[NSNumber numberWithFloat:1.2f],
-					[NSNumber numberWithFloat:.85f],
+	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.3f],
+					[NSNumber numberWithFloat:1.25f],
+					[NSNumber numberWithFloat:.75f],
+					[NSNumber numberWithFloat:1.1f],
+					[NSNumber numberWithFloat:.9f],
 					[NSNumber numberWithFloat:1.f],
 					nil];
 	
@@ -145,29 +133,28 @@
 	DangViewController *viewController = [[DangViewController alloc] init];
 	switch (btn.tag) {
 		case 1:
-			[self showTypeAnimation:kCATransitionMoveIn withSubType:kCATransitionFromLeft pushController:viewController];
+			[viewController publicCATransition:kCATransitionMoveIn SubType:kCATransitionFromLeft RootController:self.navigationController];
 			break;
 		case 2:
-			[self showTypeAnimation:kCATransitionFade withSubType:kCATransitionFromRight
-					 pushController:viewController];
+			[viewController publicCATransition:kCATransitionReveal SubType:kCATransitionFromBottom RootController:self.navigationController];
 			break;	
 		case 3:
-			[self showTypeAnimation:@"cube" withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionCube RootController:self.navigationController];
 			break;
 		case 4:
-			[self showTypeAnimation:@"suckEffect" withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionSuckEffect RootController:self.navigationController];
 			break;
 		case 5:
-			[self showTypeAnimation:@"oglFlip" withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionOglFlip RootController:self.navigationController];
 			break;
 		case 6:
-			[self showTypeAnimation:@"rippleEffect" withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionRippleEffect RootController:self.navigationController];
 			break;
 		case 7:
-			[self showTypeAnimation:@"pageCurl" withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionPageCurl RootController:self.navigationController];
 			break;
 		case 8:
-			[self showTypeAnimation:@"cameraIrisHollowOpen " withSubType:nil pushController:viewController];
+			[viewController privateCATransition:kCATransitionCameraIrisHollowOpen RootController:self.navigationController];
 			break;
 		case 9:
 			[self showZoomInController:viewController];

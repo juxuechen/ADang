@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		86AD9E501457D06200477765 /* CAAnimation+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */; };
 		86B82AF21455012800D74CD0 /* press.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82AF11455012800D74CD0 /* press.png */; };
 		86B82AF91455062800D74CD0 /* DangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B82AF81455062800D74CD0 /* DangViewController.m */; };
 		86B82AFE1455081200D74CD0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B82AFD1455081200D74CD0 /* QuartzCore.framework */; };
@@ -49,6 +50,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		86AD9E4E1457D06100477765 /* CAAnimation+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+ViewController.h"; sourceTree = "<group>"; };
+		86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+ViewController.m"; sourceTree = "<group>"; };
 		86B82AF11455012800D74CD0 /* press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = press.png; sourceTree = "<group>"; };
 		86B82AF71455062800D74CD0 /* DangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DangViewController.h; sourceTree = "<group>"; };
 		86B82AF81455062800D74CD0 /* DangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DangViewController.m; sourceTree = "<group>"; };
@@ -110,6 +113,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		86AD9E521457D07800477765 /* Animation */ = {
+			isa = PBXGroup;
+			children = (
+				86AD9E4E1457D06100477765 /* CAAnimation+ViewController.h */,
+				86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */,
+			);
+			name = Animation;
+			sourceTree = "<group>";
+		};
 		86EB4DA314515FB600A8BAF0 = {
 			isa = PBXGroup;
 			children = (
@@ -149,6 +161,7 @@
 				86EB4E021451606300A8BAF0 /* MainViewController.m */,
 				86B82AF71455062800D74CD0 /* DangViewController.h */,
 				86B82AF81455062800D74CD0 /* DangViewController.m */,
+				86AD9E521457D07800477765 /* Animation */,
 				86EB4DB914515FB700A8BAF0 /* Supporting Files */,
 			);
 			path = ADang;
@@ -313,6 +326,7 @@
 				86EB4DC314515FB700A8BAF0 /* ADangAppDelegate.m in Sources */,
 				86EB4E031451606300A8BAF0 /* MainViewController.m in Sources */,
 				86B82AF91455062800D74CD0 /* DangViewController.m in Sources */,
+				86AD9E501457D06200477765 /* CAAnimation+ViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -351,7 +365,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: guibin li (V49VKE4N92)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guibin li (V49VKE4N92)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -366,6 +381,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				PROVISIONING_PROFILE = "AEF9485B-695A-4833-A121-ECBC38CE4575";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AEF9485B-695A-4833-A121-ECBC38CE4575";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -376,7 +393,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: guibin li (V49VKE4N92)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: guibin li (V49VKE4N92)";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -385,6 +403,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PROVISIONING_PROFILE = "AEF9485B-695A-4833-A121-ECBC38CE4575";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "AEF9485B-695A-4833-A121-ECBC38CE4575";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};

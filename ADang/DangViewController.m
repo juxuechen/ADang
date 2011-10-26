@@ -46,20 +46,28 @@
 	titleLabel.font = [UIFont fontWithName:@"DFPWaWaW5" size:28.0f];
 	self.navigationItem.titleView = titleLabel;
 	
+	UILabel *label = [[UILabel alloc] initWithFrame:CGRectMake(10, 345, 300, 55)];
+	label.backgroundColor = [UIColor clearColor];
+	label.text = @"The former engineer of 口碑,琚雪制作.";
+	label.textColor = [UIColor purpleColor];
+	label.font = [UIFont fontWithName:@"DFPWaWaW5" size:20.0f];
+	label.numberOfLines = 0 ;
+	[self.view addSubview:label];
+	
 	UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
 	btn.frame = CGRectMake(0,0,320,416);
 	[self.view addSubview:btn];
 	[btn addTarget:self action:@selector(action) forControlEvents:UIControlEventTouchUpInside];
 	
-	[self imageViewWithImageName:@"ad.png" Frame:CGRectMake((320-77)/2, 130, 77, 64)];
-	[self imageViewWithImageName:@"b.png" Frame:CGRectMake(160-10-60, 210, 60, 60)];
-	[self imageViewWithImageName:@"g.png" Frame:CGRectMake(160+10, 210, 60, 60)];
+	[self imageViewWithImageName:@"ad.png" Frame:CGRectMake((320-77)/2, 105, 77, 64)];
+	[self imageViewWithImageName:@"b.png" Frame:CGRectMake(160-10-60, 185, 60, 60)];
+	[self imageViewWithImageName:@"g.png" Frame:CGRectMake(160+10, 185, 60, 60)];
 	
 	centersArray = [[NSMutableArray alloc] initWithObjects:
 					nil];
 	
 	for (int i = 0; i < dotCount; i++) {
-		[centersArray addObject:NSStringFromCGPoint(CGPointMake(160+120*cos(i*6.26/dotCount), 200+120*sin(i*6.26/dotCount)))];
+		[centersArray addObject:NSStringFromCGPoint(CGPointMake(160+120*cos(i*6.26/dotCount), 175+120*sin(i*6.26/dotCount)))];
 	}
 	
 	view1 = [self imageViewWithImageName:@"1.png"];
@@ -75,7 +83,7 @@
 	 
 	
 	direction = CW;
-	gap = (rand()%100)/1000.;
+	gap = (rand()%10)/200.;
 	if (gap == 0.0f) {
 		gap = 0.05f;
 	}
@@ -117,7 +125,7 @@
 	else {
 		direction = CW;
 	}
-	gap = (rand()%100)/1000.;
+	gap = (rand()%10)/200.;
 	if (gap == 0.0f) {
 		gap = 0.05f;
 	}
