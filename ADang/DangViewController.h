@@ -28,6 +28,10 @@
 	NSMutableArray *centersArray;
 	float gap;
 	int direction;
+	
+	NSString *type;
 }
+
+@property (nonatomic, retain) NSString *type;
 
 @end

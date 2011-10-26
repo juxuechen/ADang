@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		86AD9E501457D06200477765 /* CAAnimation+ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */; };
+		86AD9E5D1457F9A900477765 /* FTAnimationManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 86AD9E5C1457F9A900477765 /* FTAnimationManager.m */; };
 		86B82AF21455012800D74CD0 /* press.png in Resources */ = {isa = PBXBuildFile; fileRef = 86B82AF11455012800D74CD0 /* press.png */; };
 		86B82AF91455062800D74CD0 /* DangViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 86B82AF81455062800D74CD0 /* DangViewController.m */; };
 		86B82AFE1455081200D74CD0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 86B82AFD1455081200D74CD0 /* QuartzCore.framework */; };
@@ -52,6 +53,8 @@
 /* Begin PBXFileReference section */
 		86AD9E4E1457D06100477765 /* CAAnimation+ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "CAAnimation+ViewController.h"; sourceTree = "<group>"; };
 		86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "CAAnimation+ViewController.m"; sourceTree = "<group>"; };
+		86AD9E5B1457F9A900477765 /* FTAnimationManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FTAnimationManager.h; sourceTree = "<group>"; };
+		86AD9E5C1457F9A900477765 /* FTAnimationManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FTAnimationManager.m; sourceTree = "<group>"; };
 		86B82AF11455012800D74CD0 /* press.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = press.png; sourceTree = "<group>"; };
 		86B82AF71455062800D74CD0 /* DangViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DangViewController.h; sourceTree = "<group>"; };
 		86B82AF81455062800D74CD0 /* DangViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DangViewController.m; sourceTree = "<group>"; };
@@ -118,6 +121,8 @@
 			children = (
 				86AD9E4E1457D06100477765 /* CAAnimation+ViewController.h */,
 				86AD9E4F1457D06100477765 /* CAAnimation+ViewController.m */,
+				86AD9E5B1457F9A900477765 /* FTAnimationManager.h */,
+				86AD9E5C1457F9A900477765 /* FTAnimationManager.m */,
 			);
 			name = Animation;
 			sourceTree = "<group>";
@@ -327,6 +332,7 @@
 				86EB4E031451606300A8BAF0 /* MainViewController.m in Sources */,
 				86B82AF91455062800D74CD0 /* DangViewController.m in Sources */,
 				86AD9E501457D06200477765 /* CAAnimation+ViewController.m in Sources */,
+				86AD9E5D1457F9A900477765 /* FTAnimationManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

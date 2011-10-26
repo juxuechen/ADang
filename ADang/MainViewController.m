@@ -7,7 +7,6 @@
 //
 
 #import "MainViewController.h"
-#import <QuartzCore/QuartzCore.h>
 #import "DangViewController.h"
 #import "CAAnimation+ViewController.h"
 
@@ -29,7 +28,7 @@
 {
     [super viewDidLoad];
 	// Do any additional setup after loading the view, typically from a nib.
-	
+		
 	float size = 70.0f;
 	float gap = 20.0f;
 	for (int i = 0; i<3; i++) {
@@ -70,6 +69,7 @@
 	label3.numberOfLines = 0 ;
 	[self.view addSubview:label3];
 }
+
 
 - (CAAnimationGroup *)animationGroupFor:(NSArray *)animations 
 							   withView:(UIView *)view 
@@ -157,11 +157,23 @@
 			[viewController privateCATransition:kCATransitionCameraIrisHollowOpen RootController:self.navigationController];
 			break;
 		case 9:
-			[self showZoomInController:viewController];
+			viewController.type = kFTAnimationTypeIn;
+			[viewController popInRootController:self.navigationController];
 			break;
 		default:
 			break;
 	}
 }
+
+//- (void)gif{
+//	DangViewController *viewController = [[DangViewController alloc] init];
+//	viewController.type = kFTAnimationTypeIn;
+//	[viewController popInRootController:self.navigationController];
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated {
+//	[super viewDidAppear:animated];
+//	[self performSelector:@selector(gif) withObject:nil afterDelay:0.5f];
+//}
 
 @end

@@ -7,8 +7,11 @@
 //
 
 #import "DangViewController.h"
+#import "CAAnimation+ViewController.h"
 
 @implementation DangViewController
+
+@synthesize type;
 
 - (id)init
 {
@@ -20,6 +23,15 @@
     }
     
     return self;
+}
+
+- (float)getRandFloat{
+	float k;
+	k = (rand()%10)/900.;
+	if (k == 0.0f) {
+		k = 0.01f;
+	}
+	return k;
 }
 
 - (void)imageViewWithImageName:(NSString *)imageName Frame:(CGRect)frame{
@@ -37,6 +49,12 @@
 
 - (void) viewDidLoad{
 	[super viewDidLoad];
+	
+	UIBarButtonItem *temporaryBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"再来～" 
+																			   style:UIBarButtonItemStyleBordered
+																			  target:self 
+																			  action:@selector(back)];
+	self.navigationItem.leftBarButtonItem = temporaryBarButtonItem;
 	
 	UILabel *titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 320, 44)];
 	titleLabel.text = @"我来咯～";
@@ -83,10 +101,7 @@
 	 
 	
 	direction = CW;
-	gap = (rand()%10)/200.;
-	if (gap == 0.0f) {
-		gap = 0.05f;
-	}
+	gap = [self getRandFloat];
 	NSLog(@"gar %f",gap);
 	[self performSelector:@selector(center) withObject:nil afterDelay:gap];
 }
@@ -125,11 +140,33 @@
 	else {
 		direction = CW;
 	}
-	gap = (rand()%10)/200.;
-	if (gap == 0.0f) {
-		gap = 0.05f;
-	}
+	gap = [self getRandFloat];
 	NSLog(@"gar %f",gap);
 }
+
+- (void)popViewControllerAnimated:(NSNumber *)number{
+	[self.navigationController popViewControllerAnimated:[number intValue]];
+}
+
+- (void)back{
+	NSLog(@"back");
+	if (kFTAnimationTypeIn == type) {
+		[self popOutRootController:self.navigationController];
+		[self performSelector:@selector(popViewControllerAnimated:) withObject:[[NSNumber alloc] initWithInt:0] afterDelay:Duration];
+	}
+	else {
+		[self popViewControllerAnimated:[[NSNumber alloc] initWithInt:0]];
+	}
+}
+
+//- (void)gif{
+//	[self popOutRootController:self.navigationController];
+//	[self performSelector:@selector(popViewControllerAnimated:) withObject:[[NSNumber alloc] initWithInt:0] afterDelay:Duration];
+//}
+//
+//- (void)viewDidAppear:(BOOL)animated {
+//	[super viewDidAppear:animated];
+//	[self performSelector:@selector(gif) withObject:nil afterDelay:1.0f];
+//}
 
 @end

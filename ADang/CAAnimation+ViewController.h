@@ -6,6 +6,7 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
+#import "FTAnimationManager.h"
 
 extern NSString *const kCATransitionCube; //立方体效果 
 extern NSString *const kCATransitionSuckEffect; //收缩效果，如一块布被抽走  
@@ -30,9 +31,12 @@ extern NSString *const kCATransitionCameraIrisHollowClose; //相机盖关闭
  kCATransitionFromTop;
  kCATransitionFromBottom;
  */
--(void)publicCATransition:(NSString *)type SubType:(NSString *)subtype RootController:(UINavigationController *)navigationController;
+- (void)publicCATransition:(NSString *)type SubType:(NSString *)subtype RootController:(UINavigationController *)navigationController;
 
--(void)privateCATransition:(NSString *)type RootController:(UINavigationController *)navigationController;
+- (void)privateCATransition:(NSString *)type RootController:(UINavigationController *)navigationController;
 
+
+- (void)popInRootController:(UINavigationController *)navigationController;
+- (void)popOutRootController:(UINavigationController *)navigationController;
 
 @end
