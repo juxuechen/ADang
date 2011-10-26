@@ -89,7 +89,7 @@ static FTAnimationManager *sharedAnimationManager = nil;
 - (CAAnimation *)popInAnimationFor:(UIView *)view duration:(NSTimeInterval)duration {
 	CAKeyframeAnimation *scale = [CAKeyframeAnimation animationWithKeyPath:@"transform.scale"];
 	scale.duration = duration;
-	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.5f],
+	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:.3f],
 					[NSNumber numberWithFloat:1.2f],
 					[NSNumber numberWithFloat:.85f],
 					[NSNumber numberWithFloat:1.f],
@@ -108,7 +108,7 @@ static FTAnimationManager *sharedAnimationManager = nil;
 										 stopSelector:nil 
 												 name:kFTAnimationPopIn 
 												 type:kFTAnimationTypeIn];
-	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseOut];
 	return group;
 }
 
@@ -117,10 +117,9 @@ static FTAnimationManager *sharedAnimationManager = nil;
 	scale.duration = duration;
 	scale.removedOnCompletion = NO;
 	scale.values = [NSArray arrayWithObjects:[NSNumber numberWithFloat:1.f],
-					[NSNumber numberWithFloat:1.2f],
 					[NSNumber numberWithFloat:.75f],
-					[NSNumber numberWithFloat:1.1f],
-					[NSNumber numberWithFloat:.5f],
+					[NSNumber numberWithFloat:1.2f],
+					[NSNumber numberWithFloat:.3f],
 					nil];
 	
 	CABasicAnimation *fadeOut = [CABasicAnimation animationWithKeyPath:@"opacity"];
@@ -131,13 +130,61 @@ static FTAnimationManager *sharedAnimationManager = nil;
 	fadeOut.beginTime = duration * .6f;
 	fadeOut.fillMode = kCAFillModeBoth;
 	
-	return [self animationGroupFor:[NSArray arrayWithObjects:scale, fadeOut, nil] 
+	CAAnimationGroup *group = [self animationGroupFor:[NSArray arrayWithObjects:scale, fadeOut, nil] 
 						  withView:view duration:duration 
 						  delegate:nil 
 					 startSelector:nil 
 					  stopSelector:nil 
 							  name:kFTAnimationPopOut 
 							  type:kFTAnimationTypeOut];
+	group.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+	return group;
+}
+
+#pragma mark -
+#pragma mark Fall In and Fly Out Builders
+- (CAAnimation *)fallInAnimationFor:(UIView *)view duration:(NSTimeInterval)duration{
+	
+	CABasicAnimation *fall = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+	fall.fromValue = [NSNumber numberWithFloat:2.f];
+	fall.toValue = [NSNumber numberWithFloat:1.f];
+	fall.duration = duration;
+	
+	CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+	fade.fromValue = [NSNumber numberWithFloat:0.f];
+	fade.toValue = [NSNumber numberWithFloat:1.f];
+	fade.duration = duration;
+	
+	CAAnimationGroup *group = [self animationGroupFor:[NSArray arrayWithObjects:fall, fade, nil] 
+											 withView:view duration:duration 
+											 delegate:nil 
+										startSelector:nil 
+										 stopSelector:nil 
+												 name:kFTAnimationFallIn 
+												 type:kFTAnimationTypeIn];
+	return group;
+}
+
+- (CAAnimation *)fallOutAnimationFor:(UIView *)view duration:(NSTimeInterval)duration{
+	
+	CABasicAnimation *fall = [CABasicAnimation animationWithKeyPath:@"transform.scale"];
+	fall.fromValue = [NSNumber numberWithFloat:1.f];
+	fall.toValue = [NSNumber numberWithFloat:.15f];
+	fall.duration = duration;
+	
+	CABasicAnimation *fade = [CABasicAnimation animationWithKeyPath:@"opacity"];
+	fade.fromValue = [NSNumber numberWithFloat:1.f];
+	fade.toValue = [NSNumber numberWithFloat:0.f];
+	fade.duration = duration;
+	
+	CAAnimationGroup *group = [self animationGroupFor:[NSArray arrayWithObjects:fall, fade, nil] 
+											 withView:view duration:duration 
+											 delegate:nil 
+										startSelector:nil 
+										 stopSelector:nil 
+												 name:kFTAnimationFallOut 
+												 type:kFTAnimationTypeOut];
+	return group;
 }
 
 @end

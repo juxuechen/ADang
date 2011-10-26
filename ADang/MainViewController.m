@@ -154,7 +154,8 @@
 			[viewController privateCATransition:kCATransitionPageCurl RootController:self.navigationController];
 			break;
 		case 8:
-			[viewController privateCATransition:kCATransitionCameraIrisHollowOpen RootController:self.navigationController];
+			viewController.type = kFTAnimationFallIn;
+			[viewController fallInRootController:self.navigationController];
 			break;
 		case 9:
 			viewController.type = kFTAnimationTypeIn;

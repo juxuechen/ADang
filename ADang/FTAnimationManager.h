@@ -35,4 +35,7 @@ extern NSString *const kFTAnimationTargetViewKey;
 - (CAAnimation *)popInAnimationFor:(UIView *)view duration:(NSTimeInterval)duration;
 - (CAAnimation *)popOutAnimationFor:(UIView *)view duration:(NSTimeInterval)duration;
 
+- (CAAnimation *)fallInAnimationFor:(UIView *)view duration:(NSTimeInterval)duration;
+- (CAAnimation *)fallOutAnimationFor:(UIView *)view duration:(NSTimeInterval)duration;
+
 @end

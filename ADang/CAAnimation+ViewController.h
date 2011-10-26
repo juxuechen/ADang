@@ -39,4 +39,7 @@ extern NSString *const kCATransitionCameraIrisHollowClose; //相机盖关闭
 - (void)popInRootController:(UINavigationController *)navigationController;
 - (void)popOutRootController:(UINavigationController *)navigationController;
 
+- (void)fallInRootController:(UINavigationController *)navigationController;
+- (void)fallOutRootController:(UINavigationController *)navigationController;
+
 @end

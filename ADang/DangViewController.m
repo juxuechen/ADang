@@ -27,7 +27,7 @@
 
 - (float)getRandFloat{
 	float k;
-	k = (rand()%10)/900.;
+	k = (rand()%10)/500.;
 	if (k == 0.0f) {
 		k = 0.01f;
 	}
@@ -152,6 +152,10 @@
 	NSLog(@"back");
 	if (kFTAnimationTypeIn == type) {
 		[self popOutRootController:self.navigationController];
+		[self performSelector:@selector(popViewControllerAnimated:) withObject:[[NSNumber alloc] initWithInt:0] afterDelay:Duration];
+	}
+	else if (kFTAnimationFallIn == type) {
+		[self fallOutRootController:self.navigationController];
 		[self performSelector:@selector(popViewControllerAnimated:) withObject:[[NSNumber alloc] initWithInt:0] afterDelay:Duration];
 	}
 	else {
